@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# Do not ignore these
+!*/
+!honeypot/**/*.py
+!README.md
+!.gitignore
