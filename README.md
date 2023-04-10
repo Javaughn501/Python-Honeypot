@@ -5,6 +5,9 @@ UE1 CIT4020 Computer Security Group Project (Lab) 2023 Semester 2
 ## Run The Program
 
 ```shell
+# install dependencies
+pip install --requirement requirements.txt
+
 # run the server
 py honeypot
 

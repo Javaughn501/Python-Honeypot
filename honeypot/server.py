@@ -2,7 +2,28 @@ import socket
 import logging
 from threading import Thread
 
+from pydivert import WinDivert  # type: ignore
+
 from constants import PORTS
+
+
+def capture_packets():
+    win_divert_filter = (
+        "(tcp.DstPort == 22 or "
+        "tcp.DstPort == 80 or "
+        "tcp.DstPort == 443 or "
+        "tcp.DstPort == 8080) and "
+        "tcp.PayloadLength > 0"
+    )
+
+    win_divert = WinDivert(win_divert_filter)
+    win_divert.open()
+
+    for _ in range(10):
+        packet = win_divert.recv()
+        print(packet)
+
+    win_divert.close()
 
 
 def handle_request(server_socket: socket.socket):
@@ -35,3 +56,5 @@ def start():
         print(f"Listening on port {port}")
 
         Thread(target=handle_request, args=(server_socket,)).start()
+
+    capture_packets()
