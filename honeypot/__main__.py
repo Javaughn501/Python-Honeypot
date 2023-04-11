@@ -12,7 +12,7 @@ def main():
         "-c",
         "--packet-capture",
         action="store_true",
-        help="run server with packet capture feature"
+        help="run server with packet capture feature (run as Admin)"
     )
 
     server_subparser.add_argument(
@@ -26,7 +26,7 @@ def main():
         "-a",
         "--all-features",
         action="store_true",
-        help="run server with all features"
+        help="run server with all features (run as Admin)"
     )
 
     args = parser.parse_args()
