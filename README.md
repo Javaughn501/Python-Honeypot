@@ -9,7 +9,11 @@ UE1 CIT4020 Computer Security Group Project (Lab) 2023 Semester 2
 pip install --requirement requirements.txt
 
 # run the server
-py honeypot
+py honeypot server
+
+# run the server with packet capture feature
+# or use --help to view all options
+py honeypot server --packet-capture
 
 # run the client
 py honeypot client
